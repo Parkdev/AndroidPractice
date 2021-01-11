@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.grocerydelivery.data.StoreItem
 import androidx.recyclerview.widget.LinearLayoutManager as LinearLayoutManager
 
 /**
@@ -31,9 +29,19 @@ class FirstFragment : Fragment() {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 //        }
 
+        val storeItems = listOf(
+            StoreItem("Ubuntu", 4.99, "Awesome"),
+            StoreItem("Ubuntu2", 4.99, "Awesome"),
+            StoreItem("Ubuntu3", 4.99, "Awesome"),
+            StoreItem("Ubuntu4", 4.99, "Awesome"),
+            StoreItem("Ubuntu5", 4.99, "Awesome"),
+            StoreItem("Ubuntu6", 4.99, "Awesome")
+        )
+
+
         view.findViewById<RecyclerView>(R.id.storesRecyclerView).apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = StoresAdapter()
+            adapter = StoresAdapter(storeItems)
         }
 
     }
