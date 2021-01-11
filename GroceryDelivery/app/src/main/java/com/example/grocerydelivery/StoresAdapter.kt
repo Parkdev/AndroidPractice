@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocerydelivery.data.StoreItem
 
@@ -27,7 +28,7 @@ class StoresAdapter(private val storeItems: List<StoreItem>) :
 
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(storeItem: StoreItem) {
             itemView.findViewById<TextView>(R.id.storeItemTitle).text = storeItem.name
@@ -37,7 +38,9 @@ class StoresAdapter(private val storeItems: List<StoreItem>) :
                 itemView.findViewById<ImageView>(R.id.highlyRatedIcon).visibility = View.VISIBLE
             }
 
+            view.findViewById<ImageView>(R.id.mainPhoto).setOnClickListener {
+                view.findNavController().navigate(R.id.action_FirstFragment_to_productInfo)
+            }
         }
-
     }
 }

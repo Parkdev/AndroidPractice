@@ -17,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/storeItemTitle" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/mainPhoto"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
@@ -37,7 +37,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/mainPhoto" />
 
     <ImageView
         android:id="@+id/imageView5"
