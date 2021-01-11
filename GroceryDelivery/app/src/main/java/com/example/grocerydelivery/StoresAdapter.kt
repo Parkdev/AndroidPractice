@@ -3,6 +3,7 @@ package com.example.grocerydelivery
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocerydelivery.data.StoreItem
@@ -30,6 +31,12 @@ class StoresAdapter(private val storeItems: List<StoreItem>) :
 
         fun bind(storeItem: StoreItem) {
             itemView.findViewById<TextView>(R.id.storeItemTitle).text = storeItem.name
+            itemView.findViewById<TextView>(R.id.itemPrice).text = "Price: $ ${storeItem.price}"
+
+            if (storeItem.isHighlyRated) {
+                itemView.findViewById<ImageView>(R.id.highlyRatedIcon).visibility = View.VISIBLE
+            }
+
         }
 
     }

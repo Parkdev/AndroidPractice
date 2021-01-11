@@ -30,12 +30,12 @@ class FirstFragment : Fragment() {
 //        }
 
         val storeItems = listOf(
-            StoreItem("Ubuntu", 4.99, "Awesome"),
-            StoreItem("Ubuntu2", 4.99, "Awesome"),
-            StoreItem("Ubuntu3", 4.99, "Awesome"),
-            StoreItem("Ubuntu4", 4.99, "Awesome"),
-            StoreItem("Ubuntu5", 4.99, "Awesome"),
-            StoreItem("Ubuntu6", 4.99, "Awesome")
+            StoreItem("Ubuntu", 1.99, "Awesome"),
+            StoreItem("Ubuntu2", 2.99, "Awesome", true),
+            StoreItem("Ubuntu3", 3.99, "Awesome"),
+            StoreItem("Ubuntu4", 4.99, "Awesome", true),
+            StoreItem("Ubuntu5", 5.99, "Awesome"),
+            StoreItem("Ubuntu6", 6.99, "Awesome")
         )
 
 
