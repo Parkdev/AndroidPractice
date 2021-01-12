@@ -1,4 +1,5 @@
-package com.example.grocerydelivery
+import com.example.grocerydelivery.FirstFragment
+
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.grocerydelivery.FirstFragmentDirections
+import com.example.grocerydelivery.R
 import com.example.grocerydelivery.data.StoreItem
 
 class StoresAdapter(private val storeItems: List<StoreItem>) :
@@ -39,7 +42,8 @@ class StoresAdapter(private val storeItems: List<StoreItem>) :
             }
 
             view.findViewById<ImageView>(R.id.mainPhoto).setOnClickListener {
-                view.findNavController().navigate(R.id.action_FirstFragment_to_productInfo)
+                val action = FirstFragmentDirections.actionFirstFragmentToProductInfo(storeItem.name)
+                view.findNavController().navigate(action)
             }
         }
     }
