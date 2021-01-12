@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
 import com.example.grocerydelivery.data.ProductData
 
@@ -31,6 +33,7 @@ class ProductInformationFragment : Fragment() {
         if (product != null) {
             view.findViewById<TextView>(R.id.productTitle).text = product.name
             view.findViewById<TextView>(R.id.productInfoDescription).text = product.description
+            view.findViewById<ImageView>(R.id.mainProductPhoto).setImageDrawable(ContextCompat.getDrawable(requireActivity(), product.photo))
         }
 
 //        view.findViewById<TextView>(R.id.productTitle).text = args.productCodeArgument.toString()
