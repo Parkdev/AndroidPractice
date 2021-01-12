@@ -7,17 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.grocerydelivery.data.ProductData
 import com.example.grocerydelivery.data.StoreItem
 import androidx.recyclerview.widget.LinearLayoutManager as LinearLayoutManager
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+
 class FirstFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
@@ -30,14 +29,16 @@ class FirstFragment : Fragment() {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 //        }
 
-        val storeItems = listOf(
-            StoreItem("Ubuntu", 1.99, "Awesome"),
-            StoreItem("Ubuntu2", 2.99, "Awesome", true),
-            StoreItem("Ubuntu3", 3.99, "Awesome"),
-            StoreItem("Ubuntu4", 4.99, "Awesome", true),
-            StoreItem("Ubuntu5", 5.99, "Awesome"),
-            StoreItem("Ubuntu6", 6.99, "Awesome")
-        )
+//        val storeItems = listOf(
+//            StoreItem("a", "Ubuntu", 1.99, "Awesome"),
+//            StoreItem("b", "Ubuntu2", 2.99, "Awesome", true),
+//            StoreItem("c", "Ubuntu3", 3.99, "Awesome"),
+//            StoreItem("d", "Ubuntu4", 4.99, "Awesome", true),
+//            StoreItem("e", "Ubuntu5", 5.99, "Awesome"),
+//            StoreItem("f", "Ubuntu6", 6.99, "Awesome")
+//        )
+
+        val storeItems = ProductData().allProducts()
 
 
         view.findViewById<RecyclerView>(R.id.storesRecyclerView).apply {

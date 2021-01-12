@@ -42,7 +42,7 @@ class StoresAdapter(private val storeItems: List<StoreItem>) :
             }
 
             view.findViewById<ImageView>(R.id.mainPhoto).setOnClickListener {
-                val action = FirstFragmentDirections.actionFirstFragmentToProductInfo(storeItem.name)
+                val action = FirstFragmentDirections.actionFirstFragmentToProductInfo(storeItem.productCode)
                 view.findNavController().navigate(action)
             }
         }
