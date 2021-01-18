@@ -22,15 +22,19 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("from1", "hello Bundle")
         intent.putExtra("from2", 2020)
 
-        binding.btnStart.setOnClickListener { startActivity(intent) }
+        binding.btnStart.setOnClickListener { startActivityForResult(intent, 99) }
 
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            val message = data?.getStringExtra("returnValue")
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            when (requestCode) {
+                99 -> {
+                    val message = data?.getStringExtra("returnValue")
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }
