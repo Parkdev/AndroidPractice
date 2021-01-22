@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         val adapter = CustomPagerAdapter()
         adapter.views = views
         binding.viewPager.adapter = adapter
-//        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-//            when (position) {
-//                0 -> tab.text = "A"
-//                1 -> tab.text = "B"
-//                2 -> tab.text = "C"
-//                else -> tab.text = "D"
-//            }
-//        }.attach()
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "A"
+                1 -> tab.text = "B"
+                2 -> tab.text = "C"
+                else -> tab.text = "D"
+            }
+        }.attach()
     }
 }

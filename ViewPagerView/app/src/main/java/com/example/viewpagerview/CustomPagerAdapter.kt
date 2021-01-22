@@ -10,15 +10,25 @@ class CustomPagerAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     var views = listOf<View>()
 
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_a, parent, false)
-        )
+        val view: View = when (viewType) {
+            0 -> LayoutInflater.from(parent.context).inflate(R.layout.layout_a, parent, false)
+            1 -> LayoutInflater.from(parent.context).inflate(R.layout.layout_b, parent, false)
+            2 -> LayoutInflater.from(parent.context).inflate(R.layout.layout_c, parent, false)
+            3 -> LayoutInflater.from(parent.context).inflate(R.layout.layout_d, parent, false)
+            else -> LayoutInflater.from(parent.context).inflate(R.layout.layout_d, parent, false)
+        }
+
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val view = views[position]
-        holder.setView(view)
     }
 
     override fun getItemCount(): Int {
@@ -27,9 +37,5 @@ class CustomPagerAdapter : RecyclerView.Adapter<ViewHolder>() {
 }
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val textView: TextView = itemView.findViewById<TextView>(R.id.ViewA)
-    fun setView(view: View) {
-        textView.text = "뷰"
-    }
 }
 
