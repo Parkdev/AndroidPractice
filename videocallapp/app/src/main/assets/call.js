@@ -35,6 +35,7 @@ function listen() {
 
         call.answer(stream)
         call.on('stream', (remoteStream) => {
+          console.log(remoteStream)
           remoteVideo.srcObject = remoteStream
 
           remoteVideo.className = "primary-video"
@@ -64,14 +65,13 @@ function startCall(otherUserId) {
       audio: true,
       video: true
   }, (stream) => {
-
       localVideo.srcObject = stream
       localStream = stream
 
       const call = peer.call(otherUserId, stream)
       call.on('stream', (remoteStream) => {
+          console.log(remoteStream)
           remoteVideo.srcObject = remoteStream
-
           remoteVideo.className = "primary-video"
           localVideo.className = "secondary-video"
       })

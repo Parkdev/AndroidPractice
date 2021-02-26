@@ -14,7 +14,7 @@ import com.google.firebase.ktx.initialize
 class MainActivity : AppCompatActivity() {
 
     private val permissions =
-        arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO)
+        arrayOf(android.Manifest.permission.CAMERA)
     private val requestCode = 1
 
     private lateinit var binding: ActivityMainBinding

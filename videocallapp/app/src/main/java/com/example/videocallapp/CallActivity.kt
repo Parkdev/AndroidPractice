@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.webkit.PermissionRequest
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.Toast
 import com.example.videocallapp.databinding.ActivityCallBinding
 import com.google.firebase.database.DataSnapshot
@@ -58,6 +55,8 @@ class CallActivity : AppCompatActivity() {
         setupWebView()
 
 
+
+
     }
 
     private fun sendCallRequest() {
@@ -98,12 +97,10 @@ class CallActivity : AppCompatActivity() {
     private fun setupWebView() {
         binding.webView.webChromeClient = object : WebChromeClient() {
             override fun onPermissionRequest(request: PermissionRequest?) {
-//                request?.grant(request.resources)
                 request?.grant(request.resources)
             }
         }
-
-        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.setJavaScriptEnabled(true)
         binding.webView.settings.mediaPlaybackRequiresUserGesture = false
         binding.webView.addJavascriptInterface(JavascriptInterface(this), "Android")
 
